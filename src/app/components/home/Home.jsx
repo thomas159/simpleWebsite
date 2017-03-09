@@ -1,25 +1,41 @@
 import React from 'react';
 import Header from './header';
+import Form from './form';
 export default class Home extends React.Component {
   // state only gets used if it has internal value and affects nothing else
   constructor() {
     super();
-    
+
+    // this.onchange = this.onChange.bind(this);
     this.state = {
-      text: "kkdnsdkond"
+      text: "kkdnsdkond",
     }
   }
+  
+  componentWillUnmount() {
+    this.setState({})
+ }
+  onChange = (ev) => this.setState({ text: "this is a new title via function" });
+  // onChange(state) {
+  //   this.setState({ text: "this is a new title" })
+  // }
+
 
   render() {
-    setTimeout( () => this.setState({text: "This is the new title" }), 3000)
+
+    if(!this.state.text) {
+      <div>Loading...</div>
+    }
+
     const title = "Welcome Tom";
     console.log(this.props);
     return (
       <div className="container home">
         <h1>Home</h1>
-        <div>{this.state.text}</div>
+        <button ref="homeButton" onClick={this.onChange}>{this.state.text}</button>
           <div>{this.props.route.title}</div>
-        <Header name={"name passed to header component"} title={title}/>
+        <Header name={"name passed to header component"} title={title} />
+        <Form />
       </div>
     );
   }

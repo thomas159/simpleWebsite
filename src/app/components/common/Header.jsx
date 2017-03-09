@@ -15,6 +15,9 @@ function Header() {
           <li>
             <Link to="/reviews">Reviews</Link>
           </li>
+          <li>
+            <Link to="/todos">Todos</Link>
+          </li>
         </ul>
       </nav>
     </header>
