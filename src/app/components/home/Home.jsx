@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+import HomeHeader from './header';
 import Form from './form';
 export default class Home extends React.Component {
   // state only gets used if it has internal value and affects nothing else
@@ -12,9 +12,7 @@ export default class Home extends React.Component {
     }
   }
   
-  componentWillUnmount() {
-    this.setState({})
- }
+  
   onChange = (ev) => this.setState({ text: "this is a new title via function" });
   // onChange(state) {
   //   this.setState({ text: "this is a new title" })
@@ -34,7 +32,7 @@ export default class Home extends React.Component {
         <h1>Home</h1>
         <button ref="homeButton" onClick={this.onChange}>{this.state.text}</button>
           <div>{this.props.route.title}</div>
-        <Header name={"name passed to header component"} title={title} />
+        <HomeHeader name={"name passed to header component"} title={title} />
         <Form />
       </div>
     );

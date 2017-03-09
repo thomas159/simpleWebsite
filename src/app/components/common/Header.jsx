@@ -16,7 +16,7 @@ function Header() {
             <Link to="/reviews">Reviews</Link>
           </li>
           <li>
-            <Link to="/todos">Todos</Link>
+            <Link to="/redux">Redux</Link>
           </li>
         </ul>
       </nav>

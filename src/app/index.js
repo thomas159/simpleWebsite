@@ -9,13 +9,17 @@ import Home from './components/home/Home';
 import About from './components/about/About';
 import Reviews from './components/reviews/reviews';
 import ReviewsPreview from './components/reviews/reviewsPreview'
-import Todos from './components/todos/todos'
+import Redux from './components/redux/redux'
+
+import logger from "redux-logger"
+import thunk from "redux-thunk"
+import promise from "redux-promise-middleware"
 
 import reducers from './reducers';
 
 import './components/bundle.scss';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise(), thunk, logger())(createStore);
 const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
@@ -26,7 +30,7 @@ ReactDOM.render(
         <Route path="/about"  component={About} />
         <Route path="/reviews" component={Reviews} />
         <Route path="/reviews/:id" component={ReviewsPreview} />
-        <Route path="/todos" component={Todos} />
+        <Route path="/redux" component={Redux} />
       </Route>
     </Router>
   </Provider>
