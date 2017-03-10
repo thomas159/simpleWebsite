@@ -1,37 +1,40 @@
-import axios from "axios";
+import axios from 'axios';
 
-export function fetchTweets() {
-  return function(dispatch) {
-    axios.get("http://rest.learncode.academy/api/test123/tweets")
-      .then((response) => {
-        dispatch({type: "FETCH_TWEETS_FULFILLED", payload: response.data})
-      })
-      .catch((err) => {
-        dispatch({type: "FETCH_TWEETS_REJECTED", payload: err})
-      })
-  }
-}
+export const FETCH_USERS = 'FETCH_USERS';
 
-export function addTweet(id, text) {
+const ROOT_URL = 'https://api.github.com/users';
+
+
+export function fetchUsers() {
+  const request = axios.get(`${ROOT_URL}`);
+
   return {
-    type: 'ADD_TWEET',
-    payload: {
-      id,
-      text,
-    },
-  }
+    type: FETCH_USERS,
+    payload: request,
+  };
 }
 
-export function updateTweet(id, text) {
-  return {
-    type: 'UPDATE_TWEET',
-    payload: {
-      id,
-      text,
-    },
-  }
-}
+// export function fetchImages() {
+// 	return {
+// 		type: FETCH_IMAGES,
+// 		payload: [
+// 			"http://lorempixel.com/image",
+// 			"http://lorempixel.com/image",
+// 			"http://lorempixel.com/image",
+// 		]
+// 	};
+// }
 
-export function deleteTweet(id) {
-  return { type: 'DELETE_TWEET', payload: id}
-}
+// react-thunk + lodash
+// export function fetchUsers() {
+// 	const request = axios.get(`${ROOT_URL}`);
+
+// 	return dispatch => {
+// 		request.then(response => {
+// 			dispatch({
+// 			type: FETCH_IMAGES,
+// 			payload: _map(response.data, "thumbnailurl")
+// 		});
+// 		});
+// 	};
+// }
