@@ -5,16 +5,17 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import promise from 'redux-promise-middleware';
+import promise from 'redux-promise';
 import routes from './routes';
 import reducers from './reducers';
 import './components/bundle.scss';
 
-const createStoreWithMiddleware = applyMiddleware(promise(), thunk, logger())(createStore);
-const store = createStoreWithMiddleware(reducers);
+const createStoreWithMiddleware = applyMiddleware(
+	promise, logger(), thunk
+)(createStore);
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={createStoreWithMiddleware(reducers)}>
     <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory} routes={routes} />
   </Provider>
   , document.getElementById('react-root'));

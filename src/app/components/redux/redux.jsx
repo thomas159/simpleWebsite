@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import fetchUsers from '../../actions/index';
+import { fetchUsers } from '../../actions/index';
+import { Link, browserHistory } from 'react-router';
 
 class Redux extends React.Component {
 
@@ -9,16 +10,34 @@ class Redux extends React.Component {
     console.log(this.props.fetchUsers);
   }
 
+  renderUsers() {
+    return this.props.users.map((user) =>
+      <ul>
+        <li>{user.id}</li>
+        <li>{user.login}</li>
+      </ul>
+    );
+  }
+
   render() {
     return (
-      <div></div>
+      <div>
+        {this.renderUsers()}
+      </div>
     );
   }
 }
 
-export default Redux;
+
+function mapStateToProps(state) {
+  return { users: state.users.all };
+}
+
+
+export default connect(mapStateToProps, { fetchUsers })(Redux);
 
 Redux.propTypes = {
   dispatch: React.PropTypes.node,
   fetchUsers: React.PropTypes.node,
+  users: React.PropTypes.node,
 };
