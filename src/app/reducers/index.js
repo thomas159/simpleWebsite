@@ -1,8 +1,17 @@
 import { combineReducers } from 'redux';
-import fetchUsersReducer from './usersReducer';
+import users from './usersReducer';
+import tweets from './tweetsReducer';
+import { reducer as formReducer } from 'redux-form';
 
-const rootReducer = combineReducers({
-  users: fetchUsersReducer,
+export default combineReducers({
+  users,
+  tweets,
+  form: formReducer,
 });
+// const rootReducer = combineReducers({
+//   users: fetchUsersReducer,
+//   form: formReducer,
+//   tweets: fetchTweetsReducer,
+// });
 
-export default rootReducer;
+// export default rootReducer;

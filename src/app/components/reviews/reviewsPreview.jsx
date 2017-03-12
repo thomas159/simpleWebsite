@@ -18,6 +18,9 @@ export default class ReviewsPreview extends React.Component {
           <div className="picture-container">
             <img src={`/src/static/img/${athlete.image}`}/>
             <h2 className="name">{athlete.name}</h2>
+            <div>{athlete.birth}</div>
+            <div>{athlete.country}</div>
+            <a href={athlete.link} target="_blank">{athlete.link}</a>
           </div>
          
         

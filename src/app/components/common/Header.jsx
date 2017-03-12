@@ -18,6 +18,12 @@ function Header() {
           <li>
             <Link to="/redux">Redux</Link>
           </li>
+          <li>
+            <Link to="/reduxthunk">ReduxThunk</Link>
+          </li>
+          <li>
+            <Link to="/contactform">Contact Form</Link>
+          </li>
         </ul>
       </nav>
     </header>

@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/index';
 import { Link, browserHistory } from 'react-router';
 
+
+
+// @connect((store) => {
+//   return {
+//     users: store.users.all,
+//   };
+// })
 class Redux extends React.Component {
 
   componentWillMount() {
@@ -38,6 +45,6 @@ export default connect(mapStateToProps, { fetchUsers })(Redux);
 
 Redux.propTypes = {
   dispatch: React.PropTypes.node,
-  fetchUsers: React.PropTypes.node,
-  users: React.PropTypes.node,
+  fetchUsers: React.PropTypes.func,
+  users: React.PropTypes.array,
 };
