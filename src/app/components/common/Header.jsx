@@ -24,6 +24,9 @@ function Header() {
           <li>
             <Link to="/contactform">Contact Form</Link>
           </li>
+           <li>
+            <Link to="/carousel">Carousel</Link>
+          </li>
         </ul>
       </nav>
     </header>

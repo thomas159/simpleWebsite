@@ -15,7 +15,7 @@ export default class HomeHeader extends React.Component {
     console.log(this.props);
     return (
       <div className="container home">
-        <h1>This is the HomeHeader component</h1>
+        <h1>This is the HomeHeader component yes it is</h1>
         <div>{this.props.name}</div>
         <Title title={this.props.title} />
       </div>

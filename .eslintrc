@@ -6,3 +6,15 @@
     }
   }
 }
+// {
+//   "parser": "babel-eslint",
+//   "env":{
+//     "browser": true,
+//     "node": true
+//   },
+//   "extends": "airbnb",
+//   "rules": {
+//     "semi": [2,"never"],
+//     "max-len":[1,140,2]
+//  }
+// }

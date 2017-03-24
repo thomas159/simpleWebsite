@@ -9,6 +9,7 @@ import ReviewsPreview from './components/reviews/reviewsPreview';
 import Redux from './components/redux/redux';
 import ReduxThunk from './components/reduxthunk/ReduxThunk';
 import ContactForm from './components/forms/ContactForm';
+import Carousel from './components/carousel/'
 
 export default (
   <Route path="/" component={App}>
@@ -19,5 +20,6 @@ export default (
     <Route path="/redux" component={Redux} />
     <Route path="/reduxthunk" component={ReduxThunk} />
     <Route path="/contactform" component={ContactForm} />
+    <Route path="/carousel" component={Carousel} />
   </Route>
 );
